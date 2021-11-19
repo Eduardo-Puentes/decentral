@@ -1,20 +1,7 @@
 [
 	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "_index",
-				"type": "uint256"
-			}
-		],
-		"name": "buyProduct",
-		"outputs": [],
-		"stateMutability": "payable",
-		"type": "function"
-	},
-	{
 		"inputs": [],
-		"name": "getProductsLength",
+		"name": "getNumberOfPosts",
 		"outputs": [
 			{
 				"internalType": "uint256",
@@ -33,10 +20,10 @@
 				"type": "uint256"
 			}
 		],
-		"name": "readProduct",
+		"name": "getPost",
 		"outputs": [
 			{
-				"internalType": "address payable",
+				"internalType": "address",
 				"name": "",
 				"type": "address"
 			},
@@ -49,22 +36,21 @@
 				"internalType": "string",
 				"name": "",
 				"type": "string"
-			},
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
 			{
-				"internalType": "string",
-				"name": "",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "",
-				"type": "string"
-			},
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			},
+				"internalType": "address",
+				"name": "_profile",
+				"type": "address"
+			}
+		],
+		"name": "getPrice",
+		"outputs": [
 			{
 				"internalType": "uint256",
 				"name": "",
@@ -77,23 +63,32 @@
 	{
 		"inputs": [
 			{
+				"internalType": "address",
+				"name": "_profile",
+				"type": "address"
+			}
+		],
+		"name": "getSubscriptions",
+		"outputs": [
+			{
+				"internalType": "address[]",
+				"name": "",
+				"type": "address[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
 				"internalType": "string",
-				"name": "_name",
+				"name": "_title",
 				"type": "string"
 			},
 			{
 				"internalType": "string",
-				"name": "_image",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "_description",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "_location",
+				"name": "_content",
 				"type": "string"
 			},
 			{
@@ -102,9 +97,22 @@
 				"type": "uint256"
 			}
 		],
-		"name": "writeProduct",
+		"name": "postPost",
 		"outputs": [],
 		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_creator",
+				"type": "address"
+			}
+		],
+		"name": "subscribe",
+		"outputs": [],
+		"stateMutability": "payable",
 		"type": "function"
 	}
 ]
