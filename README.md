@@ -1,5 +1,5 @@
 # Decentral
-Project Demo: https://github.com/Eduardo-Puentes/decentral.git
+Project Demo: https://eduardo-puentes.github.io/decentral/
 
 Decentral is a dapp that lets users create their own posts, talking or giving their own opinion about any topic, to see the posts of a user anyone can subscribe to them, paying a price established by the creator of the post, with this subscription, the user can see all the posts that the same user made. With each post the subscription price can be changed, but isn't a must.
 
