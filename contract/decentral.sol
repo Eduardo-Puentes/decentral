@@ -28,9 +28,8 @@ interface IERC20Token {
 }
 
 contract Media {
-    uint256 internal numberOfPosts = 0;
-    address internal cUsdTokenAddress =
-        0x874069Fa1Eb16D44d622F2e0Ca25eeA172369bC1;
+    uint256 internal numberOfPosts;
+    address internal cUsdTokenAddress ;
 
     struct BasePost {
         address owner;
@@ -38,9 +37,16 @@ contract Media {
         string content;
     }
 
+    constructor(){
+        cUsdTokenAddress = 0x874069Fa1Eb16D44d622F2e0Ca25eeA172369bC1;
+        numberOfPosts = 0;
+    }
+
     mapping(uint256 => BasePost) internal basePosts;
 
     mapping(address => address[]) internal subscriptions;
+
+    mapping(address => uint[]) internal myPosts;
 
     mapping(address => uint256) internal prices;
 
@@ -51,6 +57,8 @@ contract Media {
     ) public {
         basePosts[numberOfPosts] = BasePost(msg.sender, _title, _content);
         prices[msg.sender] = _price;
+        // ÷push the id of the post to the array
+        myPosts[msg.sender].push(numberOfPosts);
         numberOfPosts++;
     }
 
@@ -93,6 +101,12 @@ contract Media {
     function getNumberOfPosts() public view returns (uint256) {
         return (numberOfPosts);
     }
+
+    // get the posts a user created
+    function getMyPosts() public view returns ( uint[] memory) {
+        return (myPosts[msg.sender]);
+    }
+
 
     function getPrice(address _profile) public view returns (uint256) {
         return (prices[_profile]);
