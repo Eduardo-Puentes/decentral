@@ -36,6 +36,7 @@ contract Media {
         address owner;
         string title;
         string content;
+        uint likes;
     }
 
     mapping(uint256 => BasePost) internal basePosts;
@@ -49,7 +50,7 @@ contract Media {
         string memory _content,
         uint256 _price
     ) public {
-        basePosts[numberOfPosts] = BasePost(msg.sender, _title, _content);
+        basePosts[numberOfPosts] = BasePost(msg.sender, _title, _content, 0);
         prices[msg.sender] = _price;
         numberOfPosts++;
     }
@@ -88,6 +89,10 @@ contract Media {
         returns (address[] memory)
     {
         return (subscriptions[_profile]);
+    }
+
+    function likePost(uint _index)public{
+        basePosts[_index].likes++;
     }
 
     function getNumberOfPosts() public view returns (uint256) {
